@@ -3,12 +3,11 @@ import pandas as pd
 import numpy as np
 #import pickel
 st.set_page_config(page_title="Cricket player prediction",page_icon=":tada",layout="wide")
-#loaded_model=pickle.load("C:/Users\SGOUD\OneDrive - Capgemini\Desktop\hackathon\data\trained_model.sav"
 st.subheader("Hi, there :wave: , hope you are doing good!")
 st.title("Cricket player prediction")
 st.write("Created a recommendation engine to predict the top 10 players ")
 
-df=pd.read_excel("C:/Users/SGOUD/OneDrive - Capgemini/Desktop/hackathon/data/output.xlsx",sheet_name=0)
+df=pd.read_excel("output.xlsx",sheet_name=0)
 
 df = df.drop(['Unnamed: 0'], axis=1)
 
@@ -17,8 +16,8 @@ df["Status"]="Active"
 
 import glob
 
-df_batting = pd.concat(map(pd.read_excel, glob.glob('C:/Users/SGOUD/OneDrive - Capgemini/Desktop/hackathon/data/battingdata/*.xlsx')))
-df_bowling = pd.concat(map(pd.read_excel, glob.glob('C:/Users/SGOUD/OneDrive - Capgemini/Desktop/hackathon/data/bowlingdata/*.xlsx')))
+df_batting = pd.concat(map(pd.read_excel, glob.glob('data/battingdata/*.xlsx')))
+df_bowling = pd.concat(map(pd.read_excel, glob.glob('data/bowlingdata/*.xlsx')))
 
 
 df_merged=df_batting.merge(df_bowling, how='outer', on=['Player','Oppositeteam'])
