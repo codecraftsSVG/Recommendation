@@ -2,3 +2,5 @@ pandas
 numpy
 streamlit
 sklearn
+openpyxl
+glob
